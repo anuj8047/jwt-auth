@@ -1,0 +1,71 @@
+1. Purana Account Remove Karein
+Pehle check karein ki koi old credentials save toh nahi hain:
+==>git credential reject https://github.com
+Agar SSH use kar rahe the, toh purani SSH key delete karein:
+==>rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+2. Git Config Ko Update Karein (Naya User Set Karein)
+git config --global user.name "kaswebtester"
+git config --global user.email "kaswebtester@gmail.com"
+
+Check karne ke liye:
+git config --global --list
+
+
+*********************************************************************************
+*********************************************************************************
+GIT FILES PUSH 
+*********************************************************************************
+*********************************************************************************
+*********************************************************************************
+Step 1: Git Initialize karein (Agar Git Initialize nahi hai)
+Agar aapke project folder me Git initialize nahi hai to:
+===>git init
+////////////////////////////////
+Step 2: .gitignore File Check karein
+Laravel ke project me .gitignore file hoti hai jo kuch files ko Git me push hone se rokta hai. Isme ensure karein ki vendor/ aur node_modules/ folders already ignore ho rahe hain.
+
+Agar .gitignore file nahi hai to ek naya file create karein aur isme yeh lines add karein:
+/vendor
+/node_modules
+/.env
+/storage/*.key
+////////////////////////////////////////////////////////////
+Step 3: Git Repository Ko Remote Se Link Karein
+Agar aapne ab tak GitHub ya GitLab par repository create nahi ki hai, to pehle waha ek New Repository banayein.
+
+Uske baad terminal me yeh command run karein:
+====>git remote add origin https://github.com/kaswebtester/liftoff-api-instructions
+
+
+&&&&&&&&&&&&
+Agar already set and and dusra add krna hai to ye cmd run karen
+git remote set-url origin https://github.com/kaswebtester/liftoff-api-instructions
+
+///////////////////////////////////////////////
+Step 4: Files Ko Stage Karein
+===>git add .
+///////////////////////////////////////////////////
+Step 5: First Commit Karein
+===>git commit -m "Initial commit"
+////////////////////////////////////////////
+Step 6: Branch Check karein (Optional)
+Laravel projects me main branch hoti hai, par agar koi dusri branch hai to check karein:
+===>git branch
+Agar main branch nahi hai to main par switch karein:
+====>git branch -M main
+///////////////////////////////////
+Step 7: Changes Ko Remote Repository Par Push Karein
+===>git push -u origin main
+===Agar aap GitHub authentication ke liye SSH key use karte hain, aur https://github.com/... remote diya hai, to aapko git push karne pe username/password ya token dalna pad sakta hai. Agar SSH remote diya ho (git@github.com:username/repository.git), to bina credentials ke push ho jayega.===
+/////////////////////////////////
+Future Changes Ko Push Karne Ke Steps
+git add .
+git commit -m "Updated some files"
+git push origin main
+
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ssh appli8022@147.79.75.83  cd /var/www/html
