@@ -1,0 +1,3 @@
+->>>php /home/app.liftoffcard.com/public_html/artisan schedule:run >> /dev/null 2>&1	
+->>>curl url of php file 
+->>>
