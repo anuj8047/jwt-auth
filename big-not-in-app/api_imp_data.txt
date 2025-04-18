@@ -1,0 +1,60 @@
+//to create custom banner widget in bigcommerce and display the theme default customizer 
+
+curl --location 'https://api.bigcommerce.com/stores/px5v02ojlp/v3/content/widget-templates' \
+--header 'Content-Type: application/json' \
+--header 'X-Auth-Token: asd343wr2er223r243' \
+--data '{
+  "name": "Expand Banner Final",
+  "label":"Images",
+   "id":"images",
+    "thumbnail": {
+    "type": "images",
+    "valueKey": "images.src"
+  },
+  "schema": [
+    {
+      "type": "tab",
+      "label": "Content",
+      "sections": [
+        {
+          "settings": [
+             {
+                     "type":"imageManager",
+					 "label": "Banner for Desktop",
+                     "id":"images1",
+                     "default":{
+                        "src":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on",
+                        "type":"IMAGE_MANAGER"
+                     }
+                  },{
+                     "type":"imageManager",
+					 "label": "Banner for Mobile",
+                     "id":"image1",
+                     "default":{
+                        "src":"https://cdn11.bigcommerce.com/s-n0i50vy/images/stencil/1280x1280/products/109/361/kinfolkessentialissue_1024x1024__22507.1456436715.jpg?c=2&imbypass=on",
+                        "type":"IMAGE_MANAGER"
+                     }
+                  },
+                  {
+                     "label":"URL",
+                     "type":"input",
+                     "id":"link",
+                     "default":"#"
+                  }
+          ]
+        }
+      ]
+    }
+  ],
+  "template": "<a class='\''desktop10'\'' href='\''{{link}}'\''><img src={{images1.src}} style='\''width:33.3%'\''/></a><br/><a class='\''mobile10'\'' href='\''{{link}}'\''><img src={{image1.src}} style='\''width:33.3%'\''/></a>"
+}'
+
+==========================================================================================================================
+// to delete the custom widget in bigcommerce 
+
+curl --location --request DELETE 'https://api.bigcommerce.com/stores/px5v02ojlp/v3/content/widget-templates/504965fd-adca-4582-b487-5bde30a89637' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'X-Auth-Token: asd343wr2er223r243'
+
+==================================================================================================================
